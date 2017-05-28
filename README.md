@@ -100,3 +100,20 @@ When installing the given `composer.json` some tasks are taken care of:
     ```
     
 * Create the Drush aliases file
+    ```
+    Craete drush aliase file on following location C:\Users\username\.drush\
+    
+    d8.aliases.drushrc.php
+    
+    d8 is site short code - you can name anyting you want
+    
+    <?php
+    // Local site.
+    $aliases["loc"] = array(
+      'uri' => 'loc.dup8.com',
+      'root' => 'C:/xampp/htdocs/mydrupl8site/web'
+    );
+    
+    and loc is alias to this website
+    
+    ```
