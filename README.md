@@ -117,3 +117,23 @@ When installing the given `composer.json` some tasks are taken care of:
     and loc is alias to this website
     
     ```
+
+# Install Drupal with Drupal Console
+
+Assuming you are in `mydrupl8site` directiry then navigate to `web` directory, run following command.
+
+```
+drupal site:install standard --site-name "My Drupal 8 Site" --langcode en --db-type mysql --db-port 3306 --db-user root --db-pass root --db-host 127.0.0.1 --db-name dup8 --site-mail admin@dup8.com --acount-name admin --acount-mail admin@dup8.com --acount-pass admin
+
+OR
+
+You can simply run short command
+
+
+drupal site:install standard
+
+but then it will ask you all required inputs one by one.
+
+```
+
+Bravo your Drupal 8 installation completed successfully :ok_hand:
