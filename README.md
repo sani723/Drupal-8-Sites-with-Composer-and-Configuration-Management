@@ -25,3 +25,5 @@ You will need to have the following installed before you can follow.
 ## Installing Drupal 8
 
 We will Install Composer template for Drupal projects.
+
+`(https://github.com/drupal-composer/drupal-project)`
