@@ -64,3 +64,19 @@ When installing the given `composer.json` some tasks are taken care of:
 * Creates `web/sites/default/files`-directory.
 * Latest version of drush is installed locally for use at `vendor/bin/drush`.
 * Latest version of DrupalConsole is installed locally for use at `vendor/bin/drupal`.
+
+## Basic setup stuff
+
+* Craete the database
+    ```
+    we will create following database mydrupl8site
+    ```
+* Add the site to host file
+    ```
+    host file can be found on folliwng url - win10
+    C:\Windows\System32\drivers\etc
+    
+    127.0.0.1       loc.dup8.com
+    ``` 
+* Create the VirtualHost entry
+* Create the Drush aliases file
