@@ -120,7 +120,7 @@ When installing the given `composer.json` some tasks are taken care of:
 
 # Install Drupal with Drupal Console
 
-Assuming you are in `mydrupl8site` directiry then navigate to `web` directory, run following command.
+Assuming you are in `mydrupl8site` directory then navigate to `web` directory, run following command.
 
 ```
 drupal site:install standard --site-name "My Drupal 8 Site" --langcode en --db-type mysql --db-port 3306 --db-user root --db-pass root --db-host 127.0.0.1 --db-name dup8 --site-mail admin@dup8.com --acount-name admin --acount-mail admin@dup8.com --acount-pass admin
@@ -137,3 +137,22 @@ but then it will ask you all required inputs one by one.
 ```
 
 Bravo your Drupal 8 installation completed successfully :ok_hand:
+
+## Login to site as admin (user 1)
+
+Move back up into the project directory i.e. outside of the `web` directory and type following command
+
+```
+drush use @d8.loc
+
+The `use` command in alias for drush lets you use drush from anywhere in this website.
+```
+
+then folloiwng command to login into the site
+
+```
+drush uli
+
+it will open website's password reset url. Here you can update admin user email, username and password etc. 
+```
+
