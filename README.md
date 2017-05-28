@@ -50,4 +50,17 @@ composer update
 ```
 And this will install all the packages we need,  e.g. twig, guzzle etc. If you see your installation there are few directories, the `web` directory is actually the core of drupal. `composer.lock` as the numage suggest its lock your version to a specific version so when you install `dev` version of module e.g. it will lock the specific version of that dev module so that anywhere else you install it on a staging or prodcution environment, you will know that you will be getting exact same version of that you used on your development machine.
 
+# What does the template do?
 
+When installing the given `composer.json` some tasks are taken care of:
+
+* Drupal will be installed in the `web`-directory.
+* Autoloader is implemented to use the generated composer autoloader in `vendor/autoload.php`,
+  instead of the one provided by Drupal (`web/vendor/autoload.php`).
+* Modules (packages of type `drupal-module`) will be placed in `web/modules/contrib/`
+* Theme (packages of type `drupal-theme`) will be placed in `web/themes/contrib/`
+* Profiles (packages of type `drupal-profile`) will be placed in `web/profiles/contrib/`
+* Creates default writable versions of `settings.php` and `services.yml`.
+* Creates `web/sites/default/files`-directory.
+* Latest version of drush is installed locally for use at `vendor/bin/drush`.
+* Latest version of DrupalConsole is installed locally for use at `vendor/bin/drupal`.
