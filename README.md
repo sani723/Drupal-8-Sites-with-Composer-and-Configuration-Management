@@ -35,5 +35,19 @@ for your setup.
 After that you can create the project:
 
 ```
-composer create-project --stability dev --no-interaction --no-install drupal/composer/drupal-project:8.x-dev myproj8
+composer create-project --stability dev --no-interaction --no-install drupal/composer/drupal-project:8.x-dev mydrupl8site
 ```
+The `composer create-project` command passes ownership of all files to the project that is created.
+
+```
+cd mydrupl8site
+composer clear-cache
+```
+and
+
+```
+composer update
+```
+And this will install all the packages we need,  e.g. twig, guzzle etc. If you see your installation there are few directories, the `web` directory is actually the core of drupal. `composer.lock` as the numage suggest its lock your version to a specific version so when you install `dev` version of module e.g. it will lock the specific version of that dev module so that anywhere else you install it on a staging or prodcution environment, you will know that you will be getting exact same version of that you used on your development machine.
+
+
