@@ -79,4 +79,24 @@ When installing the given `composer.json` some tasks are taken care of:
     127.0.0.1       loc.dup8.com
     ``` 
 * Create the VirtualHost entry
+    Open up the Xampp control panel and stop Apache (Ensure that you don’t have it running as a service, this is where doing so complicates things). Navigate to 
+    ```
+    C:/xampp/apache/conf/extra or wherever you installed xampp
+    ```
+    Fire up your text editor with administrative privileges and open up httpd-vhosts.conf found in the C:/xampp/apache/conf/extra folder. At the very bottom of the file paste the following: 
+    ```
+    NameVirtualHost *:80
+    ```
+    With out that line of code you will lose access to your default htdocs directory.
+    Now copy and paste the code below .. below the first code
+    ```
+    <VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/mydrupl8site/web"
+    ServerName loc.dup8.com
+    ServerAlias loc.dup8.com.*.xip.io
+    </VirtualHost>
+    
+    .*.xip.io - A super handy development thing from basecamp guys, you can substitute * with local ip of local computer and you can view webiste on iPad or iPhone    
+    ```
+    
 * Create the Drush aliases file
