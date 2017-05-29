@@ -254,7 +254,7 @@ So we need Configuration Installer install profile to prepare the site to be ins
 
 Then commit and push to repo.
 
-## Installing teh site on a Production Server
+## Installing the site on a Production Server
 
 * Clone the repository to production
 * Run `composer install --no-dev` (what --no-dev does is ignores the require-dev section from your composer.json and so all dev dependencies are not installed on production server)
