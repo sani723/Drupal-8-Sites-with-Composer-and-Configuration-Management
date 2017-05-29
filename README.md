@@ -227,4 +227,44 @@ Composer is great in getting modules and dependencies but it has nothing to do w
 * Manage configuration with Git
 * Prep the site to be installed on production with the Configuration Installer install profile
 
+If you are ok with default export location for configuration otherwise you can chnage it in `settings.php` 
+```
+$config_directories['sync'] = '../config/sync';
+```
 
+And then export configuration locally by using following command
+
+```
+> drush cex
+```
+
+Now if you check inside your root directory, there is `config` directory and inside it `sync` directory containing all exported `.yml` files.
+
+Now `commit` the changes and then `push`. 
+
+In Drupal 7 you probably all used `Features` to install a site locally, make some changes export those changes to feature module and then install site on production server and then push your features up and enabled features there.
+
+Well Configuration Installer is intended to be used among instances of a single site whereas features are really intended to be used as a bundle of functionality that can be used on multiple different sites. Configuration Management basically checks the site UUID to make sure they are the same site.
+
+So we need Configuration Installer install profile to prepare the site to be installed on production.
+
+```
+> drush dl config_installer
+```
+
+Then commit and push to repo.
+
+## Installing teh site on a Production Server
+
+* Clone the repository to production
+* Run `composer install --no-dev` (what --no-dev does is ignores the require-dev section from your composer.json and so all dev dependencies are not installed on production server)
+* Configure database
+* Install the site using the Configuration Installer install profile
+
+We need to create `settings.local.php` with new database settings. Once you are on `install.php` page and in second step i.e. `Choose profile` select Configuration installer instead of `Standard` or `Minimal` option.  
+
+And now on your development server apply some changes create some content type and add view then export settings and `commit` and `push` to remote repo. Then on production `pull` and run `composer install --no-dev` just few things to install and then finally import configuration by using following command.
+```
+> drush cim -y
+```
+Now clear cache and you will see all new changes on production.
