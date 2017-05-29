@@ -178,3 +178,53 @@ And uncomment following code in `settings.php`.
 ```
 
 Basically this code will look for `settings.local.php` file next to your `setings.php` and if exists, it will include any settings from that file. 
+
+## Commit the repo to Git
+
+* Initialize the repo
+* Make sure settings.local.php is ignored
+* Commit everything
+* Push to a remote repo
+
+## Installing Packages
+
+Composer can be used to download Drupal, Drupal contributed projects (modules, themes, etc.) and all of their respective dependencies. You can find official documentation [here](https://www.drupal.org/node/2718229)
+
+Move to project root directory (not `web` directory)
+
+```
+> composer require "drupal/pathauto:^1.0"
+
+You can play around with dependency version and specify ranges in different ways e.g. 
+
+> composer require "drupal/admin_toolbar:^1.14 != 1.16" and of course `>` and `<`. and you can use `||` as well e.g.
+
+> composer require "drupal/admin_toolbar:<= 1.14 || ^1.16"
+
+```
+
+One nice thing about composer, it will also install required modules in case of `pathauto` it will donwload `ctools` and `token` module as well. Now if you check your `composer.json` file, it is updated in `require` section. 
+
+To remove any dependency use following command
+
+```
+composer remove "drupal/pathauto"
+```
+
+## Enabling Modules with Drush
+
+Composer is great in getting modules and dependencies but it has nothing to do with drupal, like composer does not even know what drupal is necessarily. So we will use drush to enable modules.
+
+```
+> drush en -y admin_toolbar admin_toolbar_tools
+```
+
+
+## Configuration Management
+
+* Set the config directory in settings.php (if you want different directory)
+* Export configuration locally
+* Manage configuration with Git
+* Prep the site to be installed on production with the Configuration Installer install profile
+
+
